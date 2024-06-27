@@ -1,0 +1,5 @@
+dist/
+node_modules/
+jest.config.cjs
+.eslintrc.cjs
+commitlint.config.js
