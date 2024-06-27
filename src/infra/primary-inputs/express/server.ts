@@ -3,6 +3,7 @@ import { Server } from 'http';
 import { checkRouter } from '@infra/primary-inputs/check/express/router';
 import { scopePerRequest } from 'awilix-express';
 import { container } from '@infra/shared/awilix';
+import cors from 'cors';
 
 export interface ServerApplication {
   app: ExpressApplication;
@@ -20,6 +21,7 @@ const createServer = async (
   // MIDDLEWARES
   app.use(express.json());
   app.use(scopePerRequest(container));
+  app.use(cors());
 
   // ENDPOINTS
   app.use('/check', checkRouter);
